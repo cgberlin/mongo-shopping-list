@@ -47,15 +47,7 @@ describe('Shopping List', function() {
             });
     });
 
-  it('should edit an item on PUT', function(done){
-      chai.request(app)
-          .put('/items/1')
-          .send({'name': 'Kale'})
-          .end(function(err, res){
-            res.should.have.status(200);
-            done();
-          });
-  });
+
   it('should delete an item on DELETE', function(done){
       chai.request(app)
           .delete('/items/1')
@@ -64,12 +56,20 @@ describe('Shopping List', function() {
             done();
           });
   });
-});
 
-});
-
-    after(function(done) {
-        Item.remove(function() {
+  it('should edit an item on PUT', function(done){
+      chai.request(app)
+          .put('/items/5')
+          .send({'name': 'spinach'})
+          .end(function(err, res){
+            res.should.have.status(200);
             done();
-        });
+          });
+  });
+});
+after(function(done) {
+    Item.remove(function() {
+        done();
     });
+});
+});

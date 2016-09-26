@@ -8,3 +8,10 @@ addons:
     - mongodb-3.2-precise
     packages:
     - mongodb-org-server
+deploy:
+  provider: heroku
+  api_key:
+    secure: CeUEvatSH6zDJDJHRUZqyWn28S7e0houRJsqcQPEvbEq4E78sFQl7xblKHgsVDjMf+UnhveTLOvemKo8B/UHh5hkqEqKF07wJmdwd3YqOFPEyPNUkqdgj7FerzTDlV3UOLlSG42/VvwMzt1rS46XRpThFwvcBzR+8xHBXK7oylhDVem+ELHMiL0AKRbt5scOFVq129CcpZmaPBM4elIofZLgIAzD2VdLvZAidr1Oxp4B+nz8xBMxfV4U02ptIeFMg1e9Zrl//GK8K8jQyNuiZpO1+sUppOy5P5pLMIhpOS0KwKhQo6glH/d11tIyQuuag9wXF9IH58Dw+81eUNAQNBFfRIm+aMOZykbPiJn+G3eT4FHyd950lw3Ir474xDGD5nPootHXAJONUG8889aqDjkiiIvNahs2rG3YrmTPhf4oO+gMeou5L53E/OaOqFEHs6VysBk0C4K58MWUDrJJvQvQ6qcJ2H0cJQ5FXmiZwimXFlF0k8/bfeQbEyhVMApY0lfNdWcK7IEEa6AZnC3/2i+yiEBli6nK0rH0G9Tgq8DJy4TOtgALfdD7JpZifZRp3M8ykk+mjpkRanrq4S5vVYqfR9J4iFXoRORpdjkS5n2l8ewMuff8GH+75oXT8gpoiQ7J4KYk770e2jAqGKIWCPruBuWqQiiv9sIOrPZBlTc=
+  app: blooming-crag-58722
+  on:
+    repo: cgberlin/mongo-shopping-list
