@@ -1,4 +1,4 @@
-global.DATABASE_URL = 'mongodb://localhost/shopping-list-test';
+global.DATABASE_URL = 'mongodb://cgberlin:Vagrant23@ds041516.mlab.com:41516/shopping-list-cgberlin';
 
 var chai = require('chai');
 var chaiHttp = require('chai-http');
@@ -30,6 +30,7 @@ describe('Shopping List', function() {
             .end(function(err, res) {
                 should.equal(err, null);
                 res.should.have.status(200);
+
                 res.should.be.json;
                 done();
             });
@@ -42,10 +43,10 @@ describe('Shopping List', function() {
             .end(function(err, res) {
                 should.equal(err, null);
                 res.should.have.status(201);
-
                 done();
             });
     });
+
   it('should edit an item on PUT', function(done){
       chai.request(app)
           .put('/items/1')
