@@ -63,10 +63,15 @@ app.delete('/items/:id', function(req, res) {
     Item.findByIdAndRemove(req.params.id, function(err){
     if(err) {
       return res.status(500).json({
-          message: 'SHIT ERRORS ABORT ABORT'
+          message: 'ERRORS ABORT ABORT'
       });
   }
-  
+});
+
+
+app.put('/items/:id', function(req, res) {
+  console.log("test");
+  console.log(req.params.id);
 });
 
 
