@@ -67,15 +67,28 @@ app.delete('/items/:id', function(req, res) {
       });
   }
 });
-
-
-app.put('/items/:id', function(req, res) {
-  console.log("test");
-  console.log(req.params.id);
 });
 
 
+app.put('/items/:id',  function(req, res) {
+
+    if (!('name' in req.body)) {
+        return res.sendStatus(400);
+    }
+    Item.findByIdAndUpdate(req.params.id, {name : req.body.name}, function(err){
+    if(err) {
+      return res.status(500).json({
+          message: 'ERRORS ABORT ABORT'
+      });
+  }
 });
+
+
+
+    res.status(200).json(req.body.name);
+});
+
+
 
 app.use('*', function(req, res) {
     res.status(404).json({
