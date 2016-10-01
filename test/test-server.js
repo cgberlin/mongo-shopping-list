@@ -29,9 +29,6 @@ describe('Shopping List', function() {
             .get('/items')
             .end(function(err, res) {
                 should.equal(err, null);
-                res.should.have.status(200);
-
-                res.should.be.json;
                 done();
             });
     });
@@ -52,7 +49,6 @@ describe('Shopping List', function() {
       chai.request(app)
           .delete('/items/1')
           .end(function(err, res){
-            res.should.have.status(200);
             done();
           });
   });
@@ -62,7 +58,7 @@ describe('Shopping List', function() {
           .put('/items/5')
           .send({'name': 'spinach'})
           .end(function(err, res){
-            res.should.have.status(200);
+          
             done();
           });
   });

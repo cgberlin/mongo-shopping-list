@@ -70,23 +70,21 @@ app.delete('/items/:id', function(req, res) {
 });
 
 
+
 app.put('/items/:id',  function(req, res) {
 
     if (!('name' in req.body)) {
         return res.sendStatus(400);
     }
-    res.status(200);
     Item.findByIdAndUpdate(req.params.id, {name : req.body.name}, function(err){
-    if(err) {
-      return res.status(500).json({
-          message: 'ERRORS ABORT ABORT'
-      });
-  }
-});
-
-
-
-    res.status(200).json(req.body.name);
+      if(err) {
+        return res.status(500).json({
+            message: 'ERRORS ABORT ABORT'
+        });
+      } else {
+        res.status(200);
+      }
+    });
 });
 
 
